@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title> Spring Test</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+ 
+<h1 class="color-rojo"> HOLA MUNDO </h1>
+<h2 class="color-azul"> APLICANDO ESTILOS CSS A RECURSOS ESTATICOS </h2>
+<h1 th:text = "${titulo}"></h1>
+<!-- <img th:src="@{/imagenes/logo.png}">-->
+<div th:if = "${usuarios.size()==0}" th:text = "'No existen usuarios en la lista'"></div>
+<table th:if = "${usuarios.size()>0}">
+		<thead>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Edad</th>
+			<th>Email</th>
+		</thead>
+		<tbody>
+			<tr th:each = "usuario:${usuarios}">
+				<td th:text = "${usuario.nombre}"></td>
+				<td th:text = "${usuario.apellido}"></td>
+				<td th:text = "${usuario.edad}"></td>
+				<td th:text = "${usuario.email}"></td>
+			</tr>
+		</tbody>	
+	</table>
+	
+</body>
+</html>

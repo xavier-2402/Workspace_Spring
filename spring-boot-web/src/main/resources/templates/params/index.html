@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ENVIA PARAMETROS DEL REQUEST HTTP GET - URL</title>
+</head>
+<body>
+	<h1>ENVIA PARAMETROS DEL REQUEST HTTP GET - URL</h1>
+	<ul> 
+		<li>
+			<a th:href="@{/params/string/(texto='QUE TAL XAVIER')}">texto=QUE TAL XAVIER</a>
+		</li>
+		<li>
+			<a th:href="@{/params/string/(texto='QUE TAL JESSI')}">texto=QUE TAL JESSI</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params(saludo='QUE TAL XAVIER', numero=20)}">saludo=Xavier and numero=20</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params-request(saludo='QUE BUENO FUER VERTE JESSI ', numero=20)}">saludo=Xavier and numero=20/request</a>
+		</li>
+	</ul>
+
+</body>
+</html>

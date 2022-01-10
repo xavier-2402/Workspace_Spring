@@ -1,0 +1,45 @@
+package com.complexivo.complexivojwt.controladores;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.complexivo.complexivojwt.auth.GenerarToken;
+import com.complexivo.complexivojwt.modelos.Usuario;
+import com.complexivo.complexivojwt.servicios.UsuarioService;
+
+@Controller
+public class UsuarioController {
+	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@GetMapping("/listar-usuarios")
+	public List<Usuario> getUsuarios(){
+		 return usuarioService.recuperarUsuarios();
+	}
+
+	
+	@GetMapping("/login")
+	public Usuario login(@RequestParam("username") String username, @RequestParam("contrasenia")String contrasenia){
+		Usuario usuario = usuarioService.iniciarSesion(username, contrasenia);
+		if(usuario !=null) {
+			usuario.setToken(GenerarToken.getJwtToken(username));
+			return usuario ;
+		}
+		return new Usuario();
+	}
+	
+	@GetMapping("/crear-prueba")
+	public Usuario crearUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setUsername("usuario1");
+		usuario.setContrasenia("12345");
+		usuario.setNombreCompleto("Usuario de prueba");
+		return usuarioService.agregarUsuario(usuario);
+	}
+
+}

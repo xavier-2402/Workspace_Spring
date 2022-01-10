@@ -1,0 +1,42 @@
+package com.complexivo.complexivojwt.servicios;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.complexivo.complexivojwt.modelos.Usuario;
+import com.complexivo.complexivojwt.repositorios.UsuarioDAO;
+
+@Service
+public class UsuarioServiceImp implements UsuarioService {
+
+	@Autowired
+	private UsuarioDAO usuarioDao;
+	@Override
+	public Usuario agregarUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> recuperarUsuarios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuario buscarPorUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuario iniciarSesion(String username, String contrasenia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}
